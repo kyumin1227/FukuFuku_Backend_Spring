@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Board {
+public class BoardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class Board {
     @Column
     private Date createAt;
     @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
+    @JoinColumn(name = "user_id")
+    private UserEntity userEntity;
 
     @ManyToMany
-    @JoinTable(name = "boardTag")
-    private List<Tag> tags;
+    @JoinTable(name = "board_tag")
+    private List<TagEntity> tagEntities;
 }

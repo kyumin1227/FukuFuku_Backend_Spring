@@ -3,17 +3,19 @@ package com.example.FukuFuku_Backend_Spring.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Reply {
+public class CommentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String comment;
+    @Column
+    private Integer likeCount;
     @ManyToOne
-    @JoinColumn(name = "userId")
-    private User userId;
+    @JoinColumn(name = "user_id")
+    private UserEntity userEntity;
     @ManyToOne
-    @JoinColumn(name = "boardId")
-    private Board boardId;
+    @JoinColumn(name = "board_id")
+    private BoardEntity boardEntity;
 }

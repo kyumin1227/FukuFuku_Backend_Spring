@@ -2,18 +2,8 @@ package com.example.FukuFuku_Backend_Spring.entity;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
-
-// 복합키 생성
-@Embeddable
-class LikeId implements Serializable {
-
-    private Long userId;
-    private Long boardId;
-}
-
 @Entity
-public class Like {
+public class LikeEntity {
 
     @EmbeddedId
     private LikeId id;

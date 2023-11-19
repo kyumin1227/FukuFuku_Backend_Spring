@@ -3,7 +3,7 @@ package com.example.FukuFuku_Backend_Spring.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
