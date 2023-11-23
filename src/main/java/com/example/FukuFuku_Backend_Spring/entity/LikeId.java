@@ -1,6 +1,8 @@
 package com.example.FukuFuku_Backend_Spring.entity;
 
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
