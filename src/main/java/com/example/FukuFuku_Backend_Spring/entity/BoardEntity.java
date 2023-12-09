@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -21,14 +22,14 @@ public class BoardEntity {
     private String content;
     @Column
     private Integer views = 0;
-    @Column
-    private Date createAt = new Date();
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity userEntity;
-    @ManyToMany
-    @JoinTable(name = "board_tag",
-            joinColumns = @JoinColumn(name = "board_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id"))
-    private List<TagEntity> tagEntities;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private UserEntity userEntity;
+//    @ManyToMany
+//    @JoinTable(name = "board_tag",
+//            joinColumns = @JoinColumn(name = "board_id"),
+//            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+//    private List<TagEntity> tagEntities;
 }
