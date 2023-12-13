@@ -2,29 +2,40 @@ package com.example.FukuFuku_Backend_Spring.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+
     private String email;
-    @Column
-    private String userImage; // 이미지 주소
-    @Column
+
+    @OneToMany(mappedBy = "userEntity")
+    private List<UserImageEntity> userImage = new ArrayList<>(); // 이미지 주소
+
     private String familyName;  // 성
-    @Column
+
     private String givenName;   // 이름
-    @Column
+
     private Integer isAdmin;
-    @Column
+
     private String nickname;
-    @Column
+
     private String introduction;    // 자기소개
+
+    @OneToMany(mappedBy = "userEntity")
+    private List<BoardEntity> boardEntities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userEntity")
+    private List<CommentEntity> commentEntities = new ArrayList<>();
 
 }

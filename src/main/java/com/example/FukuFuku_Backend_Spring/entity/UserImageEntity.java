@@ -1,18 +1,17 @@
 package com.example.FukuFuku_Backend_Spring.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class UserImageEntity {
+
     @Id
     private String url;
-    @Column
     private String imageKey;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
 }

@@ -1,35 +1,47 @@
 package com.example.FukuFuku_Backend_Spring.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.time.ZonedDateTime;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class BoardEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "board_id")
     private Long id;
-    @Column
+
     private String title;
-    @Column
+
     private String content;
-    @Column
-    private Integer views = 0;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createAt;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private UserEntity userEntity;
-//    @ManyToMany
+
+    private Integer views;
+
+    private LocalDateTime createAt;
+
+    @OneToMany(mappedBy = "boardEntity")
+    private List<BoardImageEntity> boardImageEntities = new ArrayList<>();
+
+//    @OneToMany
 //    @JoinTable(name = "board_tag",
 //            joinColumns = @JoinColumn(name = "board_id"),
 //            inverseJoinColumns = @JoinColumn(name = "tag_id"))
-//    private List<TagEntity> tagEntities;
+//    private List<TagEntity> tagEntities = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "board_tag_id")
+    private BoardTagEntity boardTagEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity userEntity;
+
+    @OneToMany(mappedBy = "boardEntity")
+    private List<CommentEntity> commentEntities = new ArrayList<>();
+
 }
