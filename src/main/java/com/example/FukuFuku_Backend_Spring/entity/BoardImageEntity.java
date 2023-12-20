@@ -14,7 +14,7 @@ public class BoardImageEntity {
     private String url;
     @Column
     private String imageKey;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id")
     private BoardEntity boardEntity;
 }

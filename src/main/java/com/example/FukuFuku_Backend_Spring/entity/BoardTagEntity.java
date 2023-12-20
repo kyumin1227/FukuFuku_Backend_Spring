@@ -17,7 +17,7 @@ public class BoardTagEntity {
     @OneToMany
     private List<TagEntity> tagEntities = new ArrayList<>();
 
-    @OneToOne(mappedBy = "boardTagEntity")
+    @OneToOne(mappedBy = "boardTagEntity", fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id")
     private BoardEntity boardEntity;
 

@@ -11,7 +11,7 @@ public class UserImageEntity {
     @Id
     private String url;
     private String imageKey;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
 }

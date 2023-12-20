@@ -33,11 +33,11 @@ public class BoardEntity {
 //            inverseJoinColumns = @JoinColumn(name = "tag_id"))
 //    private List<TagEntity> tagEntities = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_tag_id")
     private BoardTagEntity boardTagEntity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
 
