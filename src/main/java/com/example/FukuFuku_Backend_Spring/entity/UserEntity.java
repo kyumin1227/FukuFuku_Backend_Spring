@@ -38,4 +38,10 @@ public class UserEntity {
     @OneToMany(mappedBy = "userEntity")
     private List<CommentEntity> commentEntities = new ArrayList<>();
 
+    @OneToMany(mappedBy = "userEntity")
+    private List<LikeEntityToBoard> likeEntityToBoards = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userEntity")
+    private List<LikeEntityToComment> likeEntityToComments = new ArrayList<>();
+
 }

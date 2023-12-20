@@ -44,4 +44,7 @@ public class BoardEntity {
     @OneToMany(mappedBy = "boardEntity")
     private List<CommentEntity> commentEntities = new ArrayList<>();
 
+    @OneToMany(mappedBy = "boardEntity")
+    private List<LikeEntityToBoard> likeEntityToBoards = new ArrayList<>();
+
 }

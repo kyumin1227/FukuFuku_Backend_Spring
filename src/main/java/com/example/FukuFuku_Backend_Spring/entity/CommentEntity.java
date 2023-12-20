@@ -38,4 +38,7 @@ public class CommentEntity {
 
     @OneToMany(mappedBy = "parent")
     private List<CommentEntity> child = new ArrayList<>();
+
+    @OneToMany(mappedBy = "commentEntity")
+    private List<LikeEntityToComment> likeEntityToComments = new ArrayList<>();
 }
